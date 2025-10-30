@@ -1,5 +1,6 @@
 import { Menu, ShoppingCart, Search, X } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 
 export const Navigation = () => {
@@ -21,9 +22,12 @@ export const Navigation = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="font-cormorant text-lg hover:text-primary transition-colors">
+            <Link to="/" className="font-cormorant text-lg hover:text-primary transition-colors">
               Home
-            </a>
+            </Link>
+            <Link to="/shop" className="font-cormorant text-lg hover:text-primary transition-colors">
+              Shop
+            </Link>
             <a href="#collection" className="font-cormorant text-lg hover:text-primary transition-colors">
               Collection
             </a>
@@ -60,13 +64,20 @@ export const Navigation = () => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden py-4 space-y-4 border-t border-primary/20 animate-fade-in">
-            <a
-              href="#home"
+            <Link
+              to="/"
               className="block font-cormorant text-lg hover:text-primary transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
-            </a>
+            </Link>
+            <Link
+              to="/shop"
+              className="block font-cormorant text-lg hover:text-primary transition-colors py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Shop
+            </Link>
             <a
               href="#collection"
               className="block font-cormorant text-lg hover:text-primary transition-colors py-2"
